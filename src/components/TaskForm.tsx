@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./TaskForm.module.css"
 
 interface Props {
     btnText: string
@@ -6,17 +7,17 @@ interface Props {
 }
 export const TaskForm: React.FC<Props> = ({btnText})=>{
     return (
-        <form>
-            <div>
-                <label htmlFor="title">Título:</label>
+        <form className={styles.form}>
+            <div className={styles.input_container}>
+                <label htmlFor="title">Título: </label>
                 <input
                     type="text"
                     name="title"
                     placeholder="Título da tarefa"
                 />
             </div>
-            <div>
-                <label htmlFor="difficulty">Dificuldade:</label>
+            <div className={styles.input_container}>
+                <label htmlFor="difficulty">Dificuldade: </label>
                 <input
                     type="number"
                     name="difficulty"
