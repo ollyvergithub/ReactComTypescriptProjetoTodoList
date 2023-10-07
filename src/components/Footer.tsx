@@ -1,9 +1,10 @@
 import React from "react";
+import styles from "./Footer.module.css"
 
 export const Footer: React.FC = () => {
     return (
-        <footer>
-            <p><span>React + TS TodoList</span>@ 2023</p>
+        <footer className={styles.footer}>
+            <p><span>React + TS TodoList</span> @ 2023</p>
         </footer>
     );
 };
