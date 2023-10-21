@@ -4,9 +4,10 @@ import styles from "./TaskList.module.css"
 
 interface Props {
     taskList: ITask[]
+    handleDelete(id: number): void
 }
 
-export const TaskList: React.FC<Props> = ({taskList}) => {
+export const TaskList: React.FC<Props> = ({taskList, handleDelete}) => {
     return (
         <div>
             <p><strong>Lista de tarefas: </strong></p>
@@ -18,7 +19,10 @@ export const TaskList: React.FC<Props> = ({taskList}) => {
                     </div>
                     <div className={styles.actions}>
                         <i className="bi bi-pencil"></i>
-                        <i className="bi bi-trash"></i>
+                        <i
+                            onClick={()=>handleDelete(task.id)}
+                            className="bi bi-trash"
+                        ></i>
                     </div>
                 </div>
             )}
