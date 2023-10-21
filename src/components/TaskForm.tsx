@@ -24,8 +24,6 @@ export const TaskForm: React.FC<Props> = ({btnText, taskList, setTaskList})=>{
 
         setTitle('')
         setDifficulty(0)
-
-        console.log("XXXXXXXXXx TASK LIST ", taskList)
     }
     
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
