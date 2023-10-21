@@ -7,13 +7,22 @@ interface Props {
     btnText: string
     taskList: ITask[]
     setTaskList?: React.Dispatch<React.SetStateAction<ITask[]>>
+    task?: ITask | null
 }
 
-export const TaskForm: React.FC<Props> = ({btnText, taskList, setTaskList})=>{
+export const TaskForm: React.FC<Props> = ({btnText, taskList, setTaskList, task})=>{
 
     const [id, setId] = useState<number>(0)
     const [title, setTitle] = useState<string>('')
     const [difficulty, setDifficulty] = useState<number>(0)
+
+    useEffect((): void => {
+        if (task){
+            setId(task.id)
+            setTitle(task.title)
+            setDifficulty(task.difficulty)
+        }
+    }, [task]);
     
     const addTaskHandler = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
