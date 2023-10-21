@@ -1,6 +1,6 @@
 import React from "react";
 import {ITask} from "../interfaces/Task";
-import style from "./TaskList.module.css"
+import styles from "./TaskList.module.css"
 
 interface Props {
     taskList: ITask[]
@@ -11,8 +11,15 @@ export const TaskList: React.FC<Props> = ({taskList}) => {
         <div>
             <p><strong>Lista de tarefas: </strong></p>
             {taskList?.map((task) =>
-                <div key={task.id}>
-                    <p>Titulo: {task.title} Dificuldade: {task.difficulty}</p>
+                <div key={task.id} className={styles.task}>
+                    <div className={styles.details}>
+                        <h4>{task.title}</h4>
+                        <p>Dificuldade: {task.difficulty}</p>
+                    </div>
+                    <div className={styles.actions}>
+                        <i className="bi bi-pencil"></i>
+                        <i className="bi bi-trash"></i>
+                    </div>
                 </div>
             )}
         </div>
