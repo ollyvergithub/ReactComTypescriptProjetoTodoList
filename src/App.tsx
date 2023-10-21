@@ -21,6 +21,19 @@ function App() {
                 return task.id !== id
             }))
     }
+    
+    const hideOrShowModal = (display: boolean): void => {
+        const modal = document.querySelector("#modal")
+        if (display){
+            modal?.classList.remove("hide")
+        }else {
+            modal?.classList.add("hide")
+        }
+    }
+    
+    const editTask = (): void => {
+        hideOrShowModal(true)
+    }
 
   return (
     <div className="App">
@@ -47,6 +60,7 @@ function App() {
                 <TaskList
                     taskList={taskList}
                     handleDelete={deleteTask}
+                    handleEdit={editTask}
                 />
             </div>
         </main>
